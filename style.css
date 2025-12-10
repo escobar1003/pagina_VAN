@@ -1,0 +1,62 @@
+/* FOOTER SIMPLE */
+.site-footer {
+    background: #222;
+    color: #f0f0f0;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 3px solid #444;
+    font-family: Arial, sans-serif;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.footer-section p {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #555;
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* === HEADER === */
+.site-header {
+  background: #e845c791;
+  border-bottom: 1px solid #da3ae288;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  background: #dad4d4;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  background-image: url("./imagenes/paint-brush-logo-260nw-527767825.webp");
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+}
