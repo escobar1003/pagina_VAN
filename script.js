@@ -1,4 +1,10 @@
 
+// FOOTER
+console.log("Footer cargado correctamente.");
+
+// HEADER
+
+
 document.addEventListener("DOMContentLoaded", () => {
   // Lightbox
   const lightbox = document.getElementById("lightbox");
@@ -27,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === lightbox) closeLB();
   });
   
+
 console.log("Header cargado correctamente");
 
 const fotoPerfil = document.getElementById('fotoPerfil');
@@ -49,5 +56,4 @@ ventanaRegistro.querySelector('form').addEventListener('submit', (e) => {
   e.preventDefault();
   alert("Registro completado");
   ventanaRegistro.style.display = 'none';
-
 });
