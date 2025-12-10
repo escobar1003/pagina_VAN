@@ -1,53 +1,82 @@
+// Encapsular para seguridad
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Scripts cargados");
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Lightbox
-  const lightbox = document.getElementById("lightbox");
-  const lbImage = document.getElementById("lbImage");
-  const lbTitle = document.getElementById("lbTitle");
-  const lbClose = document.getElementById("lbClose");
+  // ELEMENTOS
+  const fotoPerfil = document.getElementById('fotoPerfil');
+  const submenuPerfil = document.getElementById('submenuPerfil');
+  const ventanaRegistro = document.getElementById('ventanaRegistro');
+  const btnRegistro = document.getElementById('btnRegistro');
+  const closeRegistro = document.getElementById('closeRegistro');
+  const formRegistro = document.getElementById('formRegistro');
 
-  document.querySelectorAll(".clickable").forEach(img => {
-    img.addEventListener("click", () => {
-      const src = img.getAttribute("src");
-      const title = img.dataset.title || img.alt || "";
-      lbImage.src = src;
-      lbImage.alt = title;
-      lbTitle.textContent = title;
-      lightbox.setAttribute("aria-hidden", "false");
+  // SUBMENU perfil
+  if (fotoPerfil && submenuPerfil) {
+    fotoPerfil.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const visible = submenuPerfil.classList.toggle('hidden');
+      submenuPerfil.setAttribute('aria-hidden', visible ? 'false' : 'true');
     });
-  });
 
-   function closeLB() {
-    lightbox.setAttribute("aria-hidden", "true");
-    lbImage.src = "";
-    lbTitle.textContent = "";
+    // click fuera cierra submenu
+    document.addEventListener('click', (e) => {
+      if (!submenuPerfil.classList.contains('hidden') && !submenuPerfil.contains(e.target) && e.target !== fotoPerfil) {
+        submenuPerfil.classList.add('hidden');
+        submenuPerfil.setAttribute('aria-hidden', 'true');
+      }
+    });
   }
-  lbClose.addEventListener("click", closeLB);
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLB();
-  });
-  
-console.log("Header cargado correctamente");
 
-const fotoPerfil = document.getElementById('fotoPerfil');
-const submenuPerfil = document.getElementById('submenuPerfil');
-const ventanaRegistro = document.getElementById('ventanaRegistro');
-const btnRegistro = document.getElementById('btnRegistro');
+  // MODAL registro
+  if (btnRegistro && ventanaRegistro) {
+    btnRegistro.addEventListener('click', () => {
+      ventanaRegistro.classList.remove('hidden');
+      ventanaRegistro.setAttribute('aria-hidden', 'false');
+    });
+  }
+  if (closeRegistro) {
+    closeRegistro.addEventListener('click', () => {
+      ventanaRegistro.classList.add('hidden');
+      ventanaRegistro.setAttribute('aria-hidden', 'true');
+    });
+  }
+  if (formRegistro) {
+    formRegistro.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Registro completado. (demo)");
+      ventanaRegistro.classList.add('hidden');
+      ventanaRegistro.setAttribute('aria-hidden', 'true');
+      formRegistro.reset();
+    });
+  }
 
-// Mostrar/ocultar submenú al hacer click en la foto
-fotoPerfil.addEventListener('click', () => {
-  submenuPerfil.style.display = submenuPerfil.style.display === 'block' ? 'none' : 'block';
-});
+  // LIGHTBOX (abrir imagen)
+  const lightbox = document.getElementById('lightbox');
+  const lbImage = document.getElementById('lbImage');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbClose = document.getElementById('lbClose');
 
-// Mostrar ventana de registro al hacer click en el botón
-btnRegistro.addEventListener('click', () => {
-  ventanaRegistro.style.display = 'block';
-});
+  if (lightbox && lbImage && lbTitle && lbClose) {
+    document.querySelectorAll('.clickable').forEach(img => {
+      img.addEventListener('click', () => {
+        const src = img.getAttribute('src');
+        const title = img.dataset.title || img.alt || '';
+        lbImage.src = src;
+        lbImage.alt = title;
+        lbTitle.textContent = title;
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
 
-// Ocultar ventana al enviar formulario
-ventanaRegistro.querySelector('form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert("Registro completado");
-  ventanaRegistro.style.display = 'none';
+    function closeLB() {
+      lightbox.setAttribute('aria-hidden', 'true');
+      lbImage.src = '';
+      lbTitle.textContent = '';
+    }
 
+    lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLB();
+    });
+  }
 });
