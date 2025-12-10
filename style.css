@@ -1,0 +1,110 @@
+/* === HEADER === */
+.site-header {
+  background: #e845c791;
+  border-bottom: 1px solid #da3ae288;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  background: #dad4d4;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  background-image: url("./imagenes/paint-brush-logo-260nw-527767825.webp");
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: 600;
+  padding: 6px 8px;
+}
+
+/* Botón de registro */
+.registro-btn {
+  margin-right: 10px;
+  padding: 8px 12px;
+  background: #e845c7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Foto de perfil */
+.profile-circle {
+  width: 56px;
+  height: 56px;
+  background: #ddd;
+  border-radius: 80%;
+  background-image: url("./imagenes/images.jpeg");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* Submenú emergente */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.submenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.submenu li {
+  padding: 10px;
+}
+.submenu li:hover {
+  background: #f0f0f0;
+}
+
+/* Ventana emergente de registro */
+.modal {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 90px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+.modal input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.modal button {
+  padding: 8px;
+  background: #e845c7;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
