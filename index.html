@@ -1,13 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
+
+
+
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Galería Surreal — Proyecto</title>
+  <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
+
   
+
+
+
+
+  <!-- === HEADER === -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">LOGO</div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#quienes">Quiénes Somos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- Botón de registro -->
+      <button id="btnRegistro" class="registro-btn">Registro</button>
+
+      <!-- Foto de perfil -->
+      <div class="profile-circle" id="fotoPerfil" title="Perfil"></div>
+
+      <!-- Submenú emergente (oculto por defecto con .hidden) -->
+      <div id="submenuPerfil" class="submenu hidden" aria-hidden="true">
+        <ul>
+          <li><a href="#">Ver Perfil</a></li>
+          <li><a href="#">Cerrar Sesión</a></li>
+        </ul>
+      </div>
+
+      <!-- Ventana emergente de registro (oculta por defecto con .hidden) -->
+      <div id="ventanaRegistro" class="modal hidden" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true">
+          <button class="modal-close" id="closeRegistro" aria-label="Cerrar">×</button>
+          <form id="formRegistro">
+            <h2>Registro</h2>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" required>
+
+            <button type="submit">Registrarse</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+
+
+  <!-- ===== MAIN / CONTENIDO ===== -->
+  <main id="main-content">
+    <section id="inicio" class="hero container">
+      <h1>Galería Surreal — Colección Obscura</h1>
+      <p class="hero-sub">Obras únicas inspiradas en paisajes oníricos y texturas que desafían la realidad.</p>
+    </section>
+
+    <section class="gallery-layout container">
+      <div class="left-column">
+        <figure class="piece">
+          <img src="./imagenes/11_new_poprawiona_lowres_zlota_rama.jpg" alt="Colección Obscura – Parte I" class="clickable" data-title="Colección Obscura – Parte I">
+          <figcaption>Colección Obscura – Parte I</figcaption>
+        </figure>
+
+        <figure class="piece">
+          <img src="./imagenes/cabecera-totenart-beksinski.jpg" alt="Fragmentos del Sueño" class="clickable" data-title="Fragmentos del Sueño">
+          <figcaption>Fragmentos del Sueño</figcaption>
+        </figure>
+      </div>
+
+      <aside class="right-column">
+        <div class="text-card">
+          <h2>Colecciones disponibles</h2>
+          <ul>
+            <li>Realismo oscuro</li>
+            <li>Surrealismo abstracto</li>
+            <li>Arte digital conceptual</li>
+            <li>Series temáticas</li>
+          </ul>
+          <p class="small">Disponibles en original o impresión fine-art.</p>
+        </div>
+
+        <div class="text-card">
+          <h2>Servicios</h2>
+          <ul>
+            <li>Venta de pinturas</li>
+            <li>Impresiones de alta calidad</li>
+            <li>Enmarcados profesionales</li>
+            <li>Encargos personalizados</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="quienes" class="about container">
+      <h2>Quiénes Somos</h2>
+      <p>Somos una galería dedicada a difundir obras inspiradas en mundos oscuros y emocionales. Trabajamos con técnicas tradicionales y digitales.</p>
+    </section>
+
+    <section id="contacto" class="contact container">
+      <h2>Contacto</h2>
+      <p><strong>Email:</strong> contacto@galeriasurreal.com</p>
+      <p><strong>Teléfono:</strong> +57 300 123 4567</p>
+      <p><strong>Ubicación:</strong> Bogotá, Colombia</p>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX overlay -->
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <div class="lightbox-content">
+      <button id="lbClose" class="lb-close" aria-label="Cerrar">×</button>
+      <img id="lbImage" src="" alt="">
+      <h3 id="lbTitle"></h3>
+    </div>
+  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer id="site-footer" class="site-footer">
