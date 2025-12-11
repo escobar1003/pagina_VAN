@@ -40,12 +40,16 @@
           <button class="modal-close" id="closeRegistro" aria-label="Cerrar">×</button>
           <form id="formRegistro">
             <h2>Registro</h2>
+
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" required>
+
             <label for="email">Email:</label>
             <input type="email" id="email" required>
+
             <label for="telefono">Teléfono:</label>
             <input type="tel" id="telefono" required>
+
             <button type="submit">Registrarse</button>
           </form>
         </div>
@@ -54,7 +58,7 @@
     </div>
   </header>
 
- <!-- ===== MAIN / CONTENIDO ===== -->
+  <!-- ===== MAIN / CONTENIDO ===== -->
   <main id="main-content">
     <section id="inicio" class="hero container">
       <h1>Galería Surreal — Colección Obscura</h1>
@@ -111,7 +115,16 @@
     </section>
   </main>
 
-  <!-- FOOTER placeholder -->
+  <!-- LIGHTBOX overlay -->
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+    <div class="lightbox-content">
+      <button id="lbClose" class="lb-close" aria-label="Cerrar">×</button>
+      <img id="lbImage" src="" alt="">
+      <h3 id="lbTitle"></h3>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
   <footer id="site-footer" class="site-footer">
     <div class="container footer-section">
       <div>

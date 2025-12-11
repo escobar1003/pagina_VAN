@@ -1,6 +1,5 @@
-// Header: submenu y modal (funciona con .hidden)
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Header cargado correctamente');
+  console.log("Scripts cargados");
 
   const fotoPerfil = document.getElementById('fotoPerfil');
   const submenuPerfil = document.getElementById('submenuPerfil');
@@ -9,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeRegistro = document.getElementById('closeRegistro');
   const formRegistro = document.getElementById('formRegistro');
 
-  // Si faltan elementos, avisamos en consola
+  // Seguridad: verificar elementos
   if (!fotoPerfil) console.warn('fotoPerfil no encontrado');
   if (!submenuPerfil) console.warn('submenuPerfil no encontrado');
   if (!ventanaRegistro) console.warn('ventanaRegistro no encontrado');
   if (!btnRegistro) console.warn('btnRegistro no encontrado');
 
-  // Toggle submenu al hacer click en la foto
+  // SUBMENU: toggle al click en la foto
   if (fotoPerfil && submenuPerfil) {
     fotoPerfil.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -33,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Abrir modal registro
+  // MODAL: abrir con el botón
   if (btnRegistro && ventanaRegistro) {
     btnRegistro.addEventListener('click', () => {
       ventanaRegistro.classList.remove('hidden');
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Cerrar modal (botón X)
+  // cerrar modal con la X
   if (closeRegistro && ventanaRegistro) {
     closeRegistro.addEventListener('click', () => {
       ventanaRegistro.classList.add('hidden');
@@ -49,14 +48,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Envío del formulario dentro del modal
+  // enviar formulario (demo)
   if (formRegistro) {
     formRegistro.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Registro completado');
+      alert("Registro completado (demo)");
       ventanaRegistro.classList.add('hidden');
       ventanaRegistro.setAttribute('aria-hidden', 'true');
       formRegistro.reset();
     });
+  }
+
+  // LIGHTBOX: abrir imagen al click
+  const lightbox = document.getElementById('lightbox');
+  const lbImage = document.getElementById('lbImage');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbClose = document.getElementById('lbClose');
+
+  if (lightbox && lbImage && lbTitle && lbClose) {
+    document.querySelectorAll('.clickable').forEach(img => {
+      img.addEventListener('click', () => {
+        const src = img.getAttribute('src');
+        const title = img.dataset.title || img.alt || '';
+        lbImage.src = src;
+        lbImage.alt = title;
+        lbTitle.textContent = title;
+        lightbox.classList.remove('hidden');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLB() {
+      lightbox.classList.add('hidden');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lbImage.src = '';
+      lbTitle.textContent = '';
+    }
+
+    lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLB();
+    });
+  } else {
+    // Si tu HTML no tiene un lightbox, no pasa nada; se ignora.
   }
 });
